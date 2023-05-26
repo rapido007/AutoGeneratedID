@@ -10,8 +10,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "books")
-public class Book {
+@Document(collection = "Seller")
+public class Seller {
 
     @Transient
     public static final String SEQUENCE_NAME = "user_sequence";
@@ -19,5 +19,6 @@ public class Book {
     @Id
     private int id;
     private String name;
-    private double price;
+    private String email;
+    private String password;
 }

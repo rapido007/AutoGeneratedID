@@ -1,6 +1,6 @@
 package com.javatechie.mongo;
 
-import com.javatechie.mongo.entity.Book;
+import com.javatechie.mongo.entity.Seller;
 import com.javatechie.mongo.repository.BookRepository;
 import com.javatechie.mongo.service.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import static com.javatechie.mongo.entity.Book.*;
+import static com.javatechie.mongo.entity.Seller.*;
 
 @SpringBootApplication
 @RestController
@@ -25,15 +25,15 @@ public class MongoAutoSequenceExampleApplication {
 	@Autowired
 	private SequenceGeneratorService service;
 
-	@PostMapping("/saveBook")
-	public Book save(@RequestBody Book book){
+	@PostMapping("/save")
+	public Seller save(@RequestBody Seller seller){
 		//generate sequence
-		book.setId(service.getSequenceNumber(SEQUENCE_NAME));
-		return repository.save(book);
+		seller.setId(service.getSequenceNumber(SEQUENCE_NAME));
+		return repository.save(seller);
 	}
 
-	@GetMapping("/books")
-	public List<Book> getBooks(){
+	@GetMapping("/sellers")
+	public List<Seller> getAllSellers(){
 		return repository.findAll();
 	}
 
